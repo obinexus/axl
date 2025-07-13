@@ -16,15 +16,14 @@ typedef enum TaxonomyCategory {
     NOUN_MODIFIER     // Modifiers (adjectives, etc.)
 } TaxonomyCategory;
 
-#endif // AXL_TAXONOMY_H
-#ifndef AXL_TRIE_H
+#endif // AXL_TAXONOMY_H#ifndef AXL_TRIE_H
 #define AXL_TRIE_H
 
 #include <stdbool.h>
 #include <regex.h>
-
-// Forward declarations for taxonomy types
-typedef enum TaxonomyCategory TaxonomyCategory;
+#include <axl/core/taxonomy.h>
+#include <stdbool.h>
+#include <regex.h>
 
 /// A node in the regex-bound trie.
 /// Each node matches a regex pattern (e.g. "let|const").
@@ -62,10 +61,16 @@ int         trie_init(void);
 #define AXL_DAG_H
 
 #include <stddef.h>
+#include <stddef.h>
+#include <axl/core/token.h>     // For TokenType
+#include <axl/core/taxonomy.h>  // For TaxonomyCategory
 
 // Forward declarations
 typedef enum TokenType TokenType;
 typedef enum TaxonomyCategory TaxonomyCategory;
+
+
+
 
 /// Resolution states for semantic nodes.
 typedef enum {
