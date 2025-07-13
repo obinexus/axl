@@ -1,24 +1,6 @@
 .
 ├── axl.txt
 ├── build
-│   ├── CMakeCache.txt
-│   ├── CMakeFiles
-│   │   ├── 3.25.1
-│   │   │   ├── CMakeCCompiler.cmake
-│   │   │   ├── CMakeDetermineCompilerABI_C.bin
-│   │   │   ├── CMakeSystem.cmake
-│   │   │   └── CompilerIdC
-│   │   │       ├── a.out
-│   │   │       ├── CMakeCCompilerId.c
-│   │   │       └── tmp
-│   │   ├── cmake.check_cache
-│   │   ├── CMakeOutput.log
-│   │   └── pkgRedirects
-│   └── src
-│       ├── cli
-│       │   └── CMakeFiles
-│       └── core
-│           └── CMakeFiles
 ├── cmake
 │   ├── cli
 │   │   └── CLIConfig.cmake
@@ -31,6 +13,12 @@
 ├── CMakeLists.txt
 ├── include
 │   └── axl
+│       ├── cli
+│       └── core
+│           ├── dag.h
+│           ├── taxonomy.h
+│           ├── token.h
+│           └── trie.h
 ├── Makefile
 ├── scripts
 │   ├── bootstrap.sh
@@ -44,4 +32,4 @@
         ├── dag.c
         └── trie.c
 
-22 directories, 23 files
+14 directories, 19 files

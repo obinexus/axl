@@ -1,0 +1,139 @@
+#ifndef AXL_TAXONOMY_H
+#define AXL_TAXONOMY_H
+
+/// Taxonomy categories for verb-noun classification
+typedef enum TaxonomyCategory {
+    TAXONOMY_NONE = 0,
+    
+    // Verb categories
+    VERB_IDENTITY,    // Identification/declaration (let, const, var)
+    VERB_ACTION,      // Actions (=, +, -, etc.)
+    VERB_STATE,       // State verbs (is, has, etc.)
+    
+    // Noun categories
+    NOUN_SUBJECT,     // Subject nouns (identifiers on left side)
+    NOUN_OBJECT,      // Object nouns (values, literals)
+    NOUN_MODIFIER     // Modifiers (adjectives, etc.)
+} TaxonomyCategory;
+
+#endif // AXL_TAXONOMY_H
+#ifndef AXL_TRIE_H
+#define AXL_TRIE_H
+
+#include <stdbool.h>
+#include <regex.h>
+
+// Forward declarations for taxonomy types
+typedef enum TaxonomyCategory TaxonomyCategory;
+
+/// A node in the regex-bound trie.
+/// Each node matches a regex pattern (e.g. "let|const").
+typedef struct TrieNode {
+    char           *pattern_str;     // Raw regex string
+    regex_t         pattern;         // Compiled regex
+    bool            terminal;        // Marks end of a token pattern
+    float           weight;          // Semantic ranking weight
+    TaxonomyCategory category;       // Verb–noun classification
+    struct TrieNode *children[256];  // ASCII-indexed child pointers
+} TrieNode;
+
+/// Allocate and compile a new trie node.
+/// pattern_str must outlive the node.
+TrieNode*   trie_node_create(const char *pattern_str,
+                             TaxonomyCategory cat,
+                             float weight);
+
+/// Insert a pattern into the trie (recursively compiles sub-patterns).
+void        trie_insert(TrieNode *root,
+                        const char *pattern_str,
+                        TaxonomyCategory cat,
+                        float weight);
+
+/// Match `text[0..len)` against node->pattern.
+bool        trie_match_node(TrieNode *node,
+                            const char *text,
+                            size_t len);
+
+/// Initialize the trie subsystem
+int         trie_init(void);
+
+#endif // AXL_TRIE_H
+#ifndef AXL_DAG_H
+#define AXL_DAG_H
+
+#include <stddef.h>
+
+// Forward declarations
+typedef enum TokenType TokenType;
+typedef enum TaxonomyCategory TaxonomyCategory;
+
+/// Resolution states for semantic nodes.
+typedef enum {
+    STATE_UNKNOWN = 0,
+    STATE_TRUE,
+    STATE_FALSE
+} TruthValue;
+
+/// Edge in the semantic DAG.
+typedef struct DAGEdge {
+    struct DAGNode *target;
+    float           weight;    // Carries source node's weight
+} DAGEdge;
+
+/// Node in the semantic DAG.
+/// One-to-one with a matched trie node.
+typedef struct DAGNode {
+    TokenType        type;         // LET, IDENT, ASSIGN, LITERAL, etc.
+    TaxonomyCategory category;     // Verb–noun tag
+    TruthValue       state;        // Resolved truth value
+    DAGEdge         *in_edges;     // Array of incoming edges
+    size_t           in_count;
+    DAGEdge         *out_edges;    // Array of outgoing edges
+    size_t           out_count;
+} DAGNode;
+
+/// Create an empty DAG node.
+DAGNode*    dag_node_create(TokenType t,
+                            TaxonomyCategory cat);
+
+/// Link `from` → `to` with given weight.
+void        dag_add_edge(DAGNode *from,
+                         DAGNode *to,
+                         float weight);
+
+/// Topologically resolve all nodes' truth values.
+void        dag_resolve(DAGNode *nodes[],
+                        size_t node_count);
+
+/// Initialize the DAG subsystem
+int         dag_init(void);
+
+#endif // AXL_DAG_H
+#ifndef AXL_TOKEN_H
+#define AXL_TOKEN_H
+
+/// Token types for lexical analysis
+typedef enum TokenType {
+    TOKEN_UNKNOWN = 0,
+    
+    // Keywords
+    TOKEN_LET,
+    TOKEN_CONST,
+    TOKEN_VAR,
+    
+    // Operators
+    TOKEN_ASSIGN,
+    TOKEN_PLUS,
+    TOKEN_MINUS,
+    
+    // Identifiers and literals
+    TOKEN_IDENT,
+    TOKEN_LITERAL,
+    
+    // Syntax elements
+    TOKEN_SEMICOLON,
+    TOKEN_LPAREN,
+    TOKEN_RPAREN
+} TokenType;
+
+#endif // AXL_TOKEN_H
