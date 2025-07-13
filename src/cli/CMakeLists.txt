@@ -1,6 +1,6 @@
 # CLI application build configuration
 add_executable(axl
-    main.c
+    main.c  # Explicitly list the source file
 )
 
 target_link_libraries(axl

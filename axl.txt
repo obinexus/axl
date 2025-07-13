@@ -1,0 +1,47 @@
+.
+├── axl.txt
+├── build
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.25.1
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   └── CompilerIdC
+│   │   │       ├── a.out
+│   │   │       ├── CMakeCCompilerId.c
+│   │   │       └── tmp
+│   │   ├── cmake.check_cache
+│   │   ├── CMakeOutput.log
+│   │   └── pkgRedirects
+│   └── src
+│       ├── cli
+│       │   └── CMakeFiles
+│       └── core
+│           └── CMakeFiles
+├── cmake
+│   ├── cli
+│   │   └── CLIConfig.cmake
+│   ├── core
+│   │   └── CoreConfig.cmake
+│   └── std
+│       ├── CompilerOptions.cmake
+│       ├── Sanitizers.cmake
+│       └── Testing.cmake
+├── CMakeLists.txt
+├── include
+│   └── axl
+├── Makefile
+├── scripts
+│   ├── bootstrap.sh
+│   └── qa_bootstrap.sh
+└── src
+    ├── cli
+    │   ├── CMakeLists.txt
+    │   └── main.c
+    └── core
+        ├── CMakeLists.txt
+        ├── dag.c
+        └── trie.c
+
+22 directories, 23 files

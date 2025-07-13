@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * Initialize the trie subsystem
+ * Returns 0 on success, non-zero on failure
+ */
+int trie_init(void) {
+    // Placeholder implementation
+    return 0;
+}
+
 TrieNode* trie_node_create(const char *pattern_str,
                            TaxonomyCategory cat,
                            float weight) {

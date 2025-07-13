@@ -13,3 +13,8 @@ target_include_directories(axl_core
 
 # Apply compiler options
 apply_compiler_options(axl_core)
+
+# Export symbols for linking
+set_target_properties(axl_core PROPERTIES
+    POSITION_INDEPENDENT_CODE ON
+)

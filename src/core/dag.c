@@ -4,6 +4,15 @@
 // Forward declaration of helper function
 static void resolve_node_recursive(DAGNode *nodes[], size_t node_count, 
                                   size_t current, bool *visited, bool *resolved);
+/**
+ * Initialize the DAG subsystem
+ * Returns 0 on success, non-zero on failure
+ */
+int dag_init(void) {
+    // Placeholder implementation
+    return 0;
+}
+                                
 
 DAGNode* dag_node_create(TokenType t, TaxonomyCategory cat) {
     DAGNode *node = (DAGNode*)calloc(1, sizeof(DAGNode));
