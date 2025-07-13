@@ -50,11 +50,9 @@ src/cli/CMakeFiles/axl_cli.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h \
- /home/obinexus/obinexus/shr/axl/include/axl/core/integration/trie_dag.h \
+ /usr/include/strings.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h \
- /home/obinexus/obinexus/shr/axl/include/axl/core/trie.h \
- /usr/include/regex.h \
- /home/obinexus/obinexus/shr/axl/include/axl/core/taxonomy.h \
- /home/obinexus/obinexus/shr/axl/include/axl/core/dag.h \
- /home/obinexus/obinexus/shr/axl/include/axl/core/token.h
+ /home/obinexus/obinexus/shr/axl/include/axl/core/integration/trie_dag.h

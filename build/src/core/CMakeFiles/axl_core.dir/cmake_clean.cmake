@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../../lib/libaxl_core.so"
   "CMakeFiles/axl_core.dir/dag.c.o"
   "CMakeFiles/axl_core.dir/dag.c.o.d"
+  "CMakeFiles/axl_core.dir/integration/trie_dag.c.o"
+  "CMakeFiles/axl_core.dir/integration/trie_dag.c.o.d"
   "CMakeFiles/axl_core.dir/trie.c.o"
   "CMakeFiles/axl_core.dir/trie.c.o.d"
 )

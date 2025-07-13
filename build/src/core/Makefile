@@ -164,6 +164,30 @@ dag.c.s:
 	cd /home/obinexus/obinexus/shr/axl/build && $(MAKE) $(MAKESILENT) -f src/core/CMakeFiles/axl_core.dir/build.make src/core/CMakeFiles/axl_core.dir/dag.c.s
 .PHONY : dag.c.s
 
+integration/trie_dag.o: integration/trie_dag.c.o
+.PHONY : integration/trie_dag.o
+
+# target to build an object file
+integration/trie_dag.c.o:
+	cd /home/obinexus/obinexus/shr/axl/build && $(MAKE) $(MAKESILENT) -f src/core/CMakeFiles/axl_core.dir/build.make src/core/CMakeFiles/axl_core.dir/integration/trie_dag.c.o
+.PHONY : integration/trie_dag.c.o
+
+integration/trie_dag.i: integration/trie_dag.c.i
+.PHONY : integration/trie_dag.i
+
+# target to preprocess a source file
+integration/trie_dag.c.i:
+	cd /home/obinexus/obinexus/shr/axl/build && $(MAKE) $(MAKESILENT) -f src/core/CMakeFiles/axl_core.dir/build.make src/core/CMakeFiles/axl_core.dir/integration/trie_dag.c.i
+.PHONY : integration/trie_dag.c.i
+
+integration/trie_dag.s: integration/trie_dag.c.s
+.PHONY : integration/trie_dag.s
+
+# target to generate assembly for a file
+integration/trie_dag.c.s:
+	cd /home/obinexus/obinexus/shr/axl/build && $(MAKE) $(MAKESILENT) -f src/core/CMakeFiles/axl_core.dir/build.make src/core/CMakeFiles/axl_core.dir/integration/trie_dag.c.s
+.PHONY : integration/trie_dag.c.s
+
 trie.o: trie.c.o
 .PHONY : trie.o
 
@@ -201,6 +225,9 @@ help:
 	@echo "... dag.o"
 	@echo "... dag.i"
 	@echo "... dag.s"
+	@echo "... integration/trie_dag.o"
+	@echo "... integration/trie_dag.i"
+	@echo "... integration/trie_dag.s"
 	@echo "... trie.o"
 	@echo "... trie.i"
 	@echo "... trie.s"

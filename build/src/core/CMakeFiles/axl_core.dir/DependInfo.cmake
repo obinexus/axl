@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/obinexus/obinexus/shr/axl/src/core/dag.c" "src/core/CMakeFiles/axl_core.dir/dag.c.o" "gcc" "src/core/CMakeFiles/axl_core.dir/dag.c.o.d"
+  "/home/obinexus/obinexus/shr/axl/src/core/integration/trie_dag.c" "src/core/CMakeFiles/axl_core.dir/integration/trie_dag.c.o" "gcc" "src/core/CMakeFiles/axl_core.dir/integration/trie_dag.c.o.d"
   "/home/obinexus/obinexus/shr/axl/src/core/trie.c" "src/core/CMakeFiles/axl_core.dir/trie.c.o" "gcc" "src/core/CMakeFiles/axl_core.dir/trie.c.o.d"
   )
 

@@ -9,3 +9,7 @@ target_include_directories(axl_core
     PUBLIC
         ${CMAKE_SOURCE_DIR}/include
 )
+# src/core/CMakeLists.txt - Add integration directory
+target_sources(axl_core PRIVATE
+    integration/trie_dag.c
+)
