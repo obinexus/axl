@@ -1,0 +1,152 @@
+.
+├── axl.code
+├── axl.txt
+├── backups
+│   └── axl_backup_20250713_162854.tar.gz
+├── build
+│   ├── bin
+│   │   └── axl
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.25.1
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   └── CompilerIdC
+│   │   │       ├── a.out
+│   │   │       ├── CMakeCCompilerId.c
+│   │   │       └── tmp
+│   │   ├── cmake.check_cache
+│   │   ├── CMakeDirectoryInformation.cmake
+│   │   ├── CMakeOutput.log
+│   │   ├── Makefile2
+│   │   ├── Makefile.cmake
+│   │   ├── pkgRedirects
+│   │   ├── progress.marks
+│   │   └── TargetDirectories.txt
+│   ├── cmake_install.cmake
+│   ├── CTestTestfile.cmake
+│   ├── lib
+│   │   └── libaxl_core.so
+│   ├── Makefile
+│   └── src
+│       ├── cli
+│       │   ├── CMakeFiles
+│       │   │   ├── axl_cli.dir
+│       │   │   │   ├── build.make
+│       │   │   │   ├── cmake_clean.cmake
+│       │   │   │   ├── compiler_depend.internal
+│       │   │   │   ├── compiler_depend.make
+│       │   │   │   ├── compiler_depend.ts
+│       │   │   │   ├── DependInfo.cmake
+│       │   │   │   ├── depend.make
+│       │   │   │   ├── flags.make
+│       │   │   │   ├── link.txt
+│       │   │   │   ├── main.c.o
+│       │   │   │   ├── main.c.o.d
+│       │   │   │   └── progress.make
+│       │   │   ├── CMakeDirectoryInformation.cmake
+│       │   │   └── progress.marks
+│       │   ├── cmake_install.cmake
+│       │   └── Makefile
+│       └── core
+│           ├── CMakeFiles
+│           │   ├── axl_core.dir
+│           │   │   ├── build.make
+│           │   │   ├── cmake_clean.cmake
+│           │   │   ├── compiler_depend.internal
+│           │   │   ├── compiler_depend.make
+│           │   │   ├── compiler_depend.ts
+│           │   │   ├── dag.c.o
+│           │   │   ├── dag.c.o.d
+│           │   │   ├── DependInfo.cmake
+│           │   │   ├── depend.make
+│           │   │   ├── flags.make
+│           │   │   ├── integration
+│           │   │   │   ├── trie_dag.c.o
+│           │   │   │   └── trie_dag.c.o.d
+│           │   │   ├── link.txt
+│           │   │   ├── progress.make
+│           │   │   ├── trie.c.o
+│           │   │   └── trie.c.o.d
+│           │   ├── CMakeDirectoryInformation.cmake
+│           │   └── progress.marks
+│           ├── cmake_install.cmake
+│           └── Makefile
+├── cmake
+│   ├── cli
+│   │   └── CLIConfig.cmake
+│   ├── core
+│   │   └── CoreConfig.cmake
+│   └── std
+│       ├── CompilerOptions.cmake
+│       ├── Sanitizers.cmake
+│       └── Testing.cmake
+├── CMakeLists.txt
+├── examples
+│   ├── spirits-of-the-masquerade
+│   │   └── main.axl
+│   └── xia-regrets
+│       └── main.axl
+├── include
+│   └── axl
+│       ├── cli
+│       ├── core
+│       │   ├── axml
+│       │   │   └── parser.h
+│       │   ├── dag
+│       │   │   └── dag.h
+│       │   ├── dag.h
+│       │   ├── integration
+│       │   │   └── trie_dag.h
+│       │   ├── runtime
+│       │   │   ├── collector.h
+│       │   │   └── event_bus.h
+│       │   ├── taxonomy
+│       │   │   └── taxonomy.h
+│       │   ├── taxonomy.h
+│       │   ├── token.h
+│       │   ├── trie
+│       │   │   └── trie.h
+│       │   ├── trie.h
+│       │   └── utils
+│       │       └── token.h
+│       └── frontend
+│           ├── lexer
+│           │   └── lexer.h
+│           └── parser
+│               └── parser.h
+├── Makefile
+├── scripts
+│   └── axl.sh
+└── src
+    ├── cli
+    │   ├── CMakeLists.txt
+    │   └── main.c
+    ├── core
+    │   ├── axml
+    │   │   └── xml_parser.c
+    │   ├── CMakeLists.txt
+    │   ├── dag
+    │   │   └── dag.c
+    │   ├── dag.c
+    │   ├── integration
+    │   │   ├── axml_integration.c
+    │   │   └── trie_dag.c
+    │   ├── taxonomy
+    │   │   └── taxonomy.c
+    │   ├── trie
+    │   │   └── trie.c
+    │   ├── trie.c
+    │   └── utils
+    │       ├── memory.c
+    │       └── token.c
+    └── frontend
+        ├── lexer
+        │   ├── custom.c
+        │   ├── expression.c
+        │   └── statement.c
+        └── parser
+            └── parser.c
+
+52 directories, 98 files

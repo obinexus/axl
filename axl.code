@@ -1,3 +1,91 @@
+// include/axl/core/runtime/collector.h
+#ifndef AXL_COLLECTOR_H
+#define AXL_COLLECTOR_H
+
+#include <stdbool.h>
+#include <axl/core/runtime/event_bus.h>
+
+typedef struct Collector Collector;
+
+/**
+ * Create a new collector for event aggregation
+ */
+Collector* collector_create(void);
+
+/**
+ * Register the collector with the event bus
+ */
+bool collector_register(Collector* collector, EventType* event_types, size_t count);
+
+/**
+ * Process collected events
+ */
+void collector_process(Collector* collector);
+
+/**
+ * Destroy the collector and free resources
+ */
+void collector_destroy(Collector* collector);
+
+#endif // AXL_COLLECTOR_H
+// include/axl/core/runtime/event_bus.h
+#ifndef AXL_EVENT_BUS_H
+#define AXL_EVENT_BUS_H
+
+#include <stdbool.h>
+
+typedef enum {
+    EVENT_DAG_NODE_CREATED,
+    EVENT_DAG_NODE_RESOLVED,
+    EVENT_DAG_NODE_BUSTED,
+    EVENT_TRIE_MATCH,
+    EVENT_CACHE_MISS,
+    EVENT_CACHE_HIT
+} EventType;
+
+typedef struct {
+    EventType type;
+    void* source;
+    void* data;
+    size_t data_size;
+} Event;
+
+typedef void (*EventHandler)(const Event* event, void* user_data);
+
+typedef struct {
+    EventHandler handler;
+    void* user_data;
+    EventType* event_types;
+    size_t event_type_count;
+} EventSubscription;
+
+/**
+ * Initialize the event bus system
+ */
+bool event_bus_init(void);
+
+/**
+ * Subscribe to specific events
+ */
+int event_bus_subscribe(EventHandler handler, void* user_data, 
+                        EventType* event_types, size_t event_type_count);
+
+/**
+ * Unsubscribe from events
+ */
+void event_bus_unsubscribe(int subscription_id);
+
+/**
+ * Publish an event to all subscribers
+ */
+void event_bus_publish(const Event* event);
+
+/**
+ * Clean up the event bus system
+ */
+void event_bus_cleanup(void);
+
+#endif // AXL_EVENT_BUS_H
 #ifndef AXL_TAXONOMY_H
 #define AXL_TAXONOMY_H
 
@@ -77,14 +165,14 @@ int         dag_init(void);
 #ifndef AXL_TRIE_DAG_INTEGRATION_H
 #define AXL_TRIE_DAG_INTEGRATION_H
 
-#include <axl/core/trie.h>
-#include <axl/core/dag.h>
+#include <stdbool.h>
 
-// Forward declarations
-struct DAGNode;
-struct TrieNode;
-
-// Minimal placeholder for compilation
+/**
+ * Execute an AXL file with AXML configuration
+ * @param axl_path Path to AXL source file
+ * @param axml_path Path to AXML configuration file
+ * @return Success status of execution
+ */
 bool execute_axl_with_busting(const char* axl_path, const char* axml_path);
 
 #endif // AXL_TRIE_DAG_INTEGRATION_H
