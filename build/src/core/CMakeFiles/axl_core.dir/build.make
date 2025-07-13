@@ -69,25 +69,10 @@ include src/core/CMakeFiles/axl_core.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/core/CMakeFiles/axl_core.dir/flags.make
 
-src/core/CMakeFiles/axl_core.dir/trie.c.o: src/core/CMakeFiles/axl_core.dir/flags.make
-src/core/CMakeFiles/axl_core.dir/trie.c.o: /home/obinexus/obinexus/shr/axl/src/core/trie.c
-src/core/CMakeFiles/axl_core.dir/trie.c.o: /home/obinexus/obinexus/shr/axl/include/axl/core/taxonomy.h
-src/core/CMakeFiles/axl_core.dir/trie.c.o: src/core/CMakeFiles/axl_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/obinexus/obinexus/shr/axl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/core/CMakeFiles/axl_core.dir/trie.c.o"
-	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/core/CMakeFiles/axl_core.dir/trie.c.o -MF CMakeFiles/axl_core.dir/trie.c.o.d -o CMakeFiles/axl_core.dir/trie.c.o -c /home/obinexus/obinexus/shr/axl/src/core/trie.c
-
-src/core/CMakeFiles/axl_core.dir/trie.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/axl_core.dir/trie.c.i"
-	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/obinexus/obinexus/shr/axl/src/core/trie.c > CMakeFiles/axl_core.dir/trie.c.i
-
-src/core/CMakeFiles/axl_core.dir/trie.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/axl_core.dir/trie.c.s"
-	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/obinexus/obinexus/shr/axl/src/core/trie.c -o CMakeFiles/axl_core.dir/trie.c.s
-
 src/core/CMakeFiles/axl_core.dir/dag.c.o: src/core/CMakeFiles/axl_core.dir/flags.make
 src/core/CMakeFiles/axl_core.dir/dag.c.o: /home/obinexus/obinexus/shr/axl/src/core/dag.c
 src/core/CMakeFiles/axl_core.dir/dag.c.o: src/core/CMakeFiles/axl_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/obinexus/obinexus/shr/axl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/core/CMakeFiles/axl_core.dir/dag.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/obinexus/obinexus/shr/axl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/core/CMakeFiles/axl_core.dir/dag.c.o"
 	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/core/CMakeFiles/axl_core.dir/dag.c.o -MF CMakeFiles/axl_core.dir/dag.c.o.d -o CMakeFiles/axl_core.dir/dag.c.o -c /home/obinexus/obinexus/shr/axl/src/core/dag.c
 
 src/core/CMakeFiles/axl_core.dir/dag.c.i: cmake_force
@@ -98,16 +83,30 @@ src/core/CMakeFiles/axl_core.dir/dag.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/axl_core.dir/dag.c.s"
 	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/obinexus/obinexus/shr/axl/src/core/dag.c -o CMakeFiles/axl_core.dir/dag.c.s
 
+src/core/CMakeFiles/axl_core.dir/trie.c.o: src/core/CMakeFiles/axl_core.dir/flags.make
+src/core/CMakeFiles/axl_core.dir/trie.c.o: /home/obinexus/obinexus/shr/axl/src/core/trie.c
+src/core/CMakeFiles/axl_core.dir/trie.c.o: src/core/CMakeFiles/axl_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/obinexus/obinexus/shr/axl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/core/CMakeFiles/axl_core.dir/trie.c.o"
+	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/core/CMakeFiles/axl_core.dir/trie.c.o -MF CMakeFiles/axl_core.dir/trie.c.o.d -o CMakeFiles/axl_core.dir/trie.c.o -c /home/obinexus/obinexus/shr/axl/src/core/trie.c
+
+src/core/CMakeFiles/axl_core.dir/trie.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/axl_core.dir/trie.c.i"
+	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/obinexus/obinexus/shr/axl/src/core/trie.c > CMakeFiles/axl_core.dir/trie.c.i
+
+src/core/CMakeFiles/axl_core.dir/trie.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/axl_core.dir/trie.c.s"
+	cd /home/obinexus/obinexus/shr/axl/build/src/core && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/obinexus/obinexus/shr/axl/src/core/trie.c -o CMakeFiles/axl_core.dir/trie.c.s
+
 # Object files for target axl_core
 axl_core_OBJECTS = \
-"CMakeFiles/axl_core.dir/trie.c.o" \
-"CMakeFiles/axl_core.dir/dag.c.o"
+"CMakeFiles/axl_core.dir/dag.c.o" \
+"CMakeFiles/axl_core.dir/trie.c.o"
 
 # External object files for target axl_core
 axl_core_EXTERNAL_OBJECTS =
 
-lib/libaxl_core.so: src/core/CMakeFiles/axl_core.dir/trie.c.o
 lib/libaxl_core.so: src/core/CMakeFiles/axl_core.dir/dag.c.o
+lib/libaxl_core.so: src/core/CMakeFiles/axl_core.dir/trie.c.o
 lib/libaxl_core.so: src/core/CMakeFiles/axl_core.dir/build.make
 lib/libaxl_core.so: src/core/CMakeFiles/axl_core.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/obinexus/obinexus/shr/axl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library ../../lib/libaxl_core.so"

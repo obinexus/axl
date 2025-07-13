@@ -6,5 +6,5 @@ C_DEFINES = -Daxl_core_EXPORTS
 
 C_INCLUDES = -I/home/obinexus/obinexus/shr/axl/include
 
-C_FLAGS = -g -fPIC -Wall -Wextra -Werror -Wno-unused-parameter
+C_FLAGS = -g -fPIC
 
