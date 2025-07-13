@@ -3,9 +3,9 @@
 
 #include <stdbool.h>
 #include <regex.h>
-
-// Forward declarations for taxonomy types
-typedef enum TaxonomyCategory TaxonomyCategory;
+#include <axl/core/taxonomy.h>
+#include <stdbool.h>
+#include <regex.h>
 
 /// A node in the regex-bound trie.
 /// Each node matches a regex pattern (e.g. "let|const").

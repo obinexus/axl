@@ -4,39 +4,25 @@ add_library(axl_core SHARED
     dag.c
 )
 
+# Define taxonomy.h as a dependency for trie.h
+set_source_files_properties(
+    trie.c
+    PROPERTIES
+    OBJECT_DEPENDS "${CMAKE_SOURCE_DIR}/include/axl/core/taxonomy.h"
+)
+
+# Define include directories with proper scope
 target_include_directories(axl_core
     PUBLIC
-        ${CMAKE_SOURCE_DIR}/include
+        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+# Apply compiler options with warning suppressions where needed
+target_compile_options(axl_core
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}
-)
-
-# Apply compiler options
-apply_compiler_options(axl_core)
-
-# Set output properties for consistent naming
-set_target_properties(axl_core PROPERTIES
-    OUTPUT_NAME "axl"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-)
-
-# Also create static library variant
-add_library(axl_static STATIC
-    trie.c
-    dag.c
-)
-
-target_include_directories(axl_static
-    PUBLIC
-        ${CMAKE_SOURCE_DIR}/include
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}
-)
-
-apply_compiler_options(axl_static)
-
-set_target_properties(axl_static PROPERTIES
-    OUTPUT_NAME "axl"
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+        -Wall
+        -Wextra
+        -Werror
+        -Wno-unused-parameter  # Only if you need to temporarily suppress warnings
 )

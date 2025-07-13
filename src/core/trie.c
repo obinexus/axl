@@ -1,6 +1,9 @@
-#include "axl/trie.h"
+#include <axl/core/trie.h>
+#include <axl/core/taxonomy.h>
 #include <stdlib.h>
 #include <string.h>
+
+/* Rest of implementation remains unchanged */
 
 /**
  * Initialize the trie subsystem
@@ -61,6 +64,27 @@ void trie_insert(TrieNode *root,
                  const char *pattern_str,
                  TaxonomyCategory cat,
                  float weight) {
-    // Implementation of pattern insertion logic
-    // ...
+    if (!root || !pattern_str) {
+        return;
+    }
+    
+    // Calculate first character for indexing
+    unsigned char first_char = (unsigned char)pattern_str[0];
+    
+    // If child doesn't exist, create it
+    if (!root->children[first_char]) {
+        root->children[first_char] = trie_node_create(pattern_str, cat, weight);
+        if (root->children[first_char]) {
+            root->children[first_char]->terminal = true;
+        }
+    }
+    
+    // More complex implementation would handle nested patterns
+    // Use proper type casting to avoid sign comparison warnings
+    bool matches = (result == 0 && match.rm_so == 0 && 
+                   (size_t)match.rm_eo == len);
+    
+    free(text_copy);
+    return matches;
+
 }
