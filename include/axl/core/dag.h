@@ -2,10 +2,16 @@
 #define AXL_DAG_H
 
 #include <stddef.h>
+#include <stddef.h>
+#include <axl/core/token.h>     // For TokenType
+#include <axl/core/taxonomy.h>  // For TaxonomyCategory
 
 // Forward declarations
 typedef enum TokenType TokenType;
 typedef enum TaxonomyCategory TaxonomyCategory;
+
+
+
 
 /// Resolution states for semantic nodes.
 typedef enum {
