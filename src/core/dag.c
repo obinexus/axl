@@ -1,6 +1,7 @@
 #include <axl/core/dag.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
+#include <string.h>
 // Forward declaration of helper function
 static void resolve_node_recursive(DAGNode *nodes[], size_t node_count, 
                                   size_t current, bool *visited, bool *resolved);
