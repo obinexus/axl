@@ -1,7 +1,9 @@
-// src/cli/main.c
+// Updated includes in src/cli/main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>     // For clock() and CLOCKS_PER_SEC
+#include <stdbool.h>  // For boolean type support
 #include <axl/core/integration/trie_dag.h>
 
 // Command-line options
