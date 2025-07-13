@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/axl_cli.dir/main.c.o -o ../../bin/axl  -Wl,-rpath,/home/obinexus/obinexus/shr/axl/build/lib ../../lib/libaxl.so 
