@@ -1,6 +1,11 @@
 // src/core/integration/axml_integration.c
+// Patch for src/cli/main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>   // Required for clock() and CLOCKS_PER_SEC
+#include <stdbool.h> // Required for bool type
 #include <axl/core/integration/trie_dag.h>
-#include <axl/core/axml/parser.h>
 
 bool apply_axml_to_dag(DAGNode* root, AxmlConfig* config) {
     if (!root || !config) return false;

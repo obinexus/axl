@@ -13,6 +13,9 @@ typedef struct {
     bool retain_memory;
     bool trace_enabled;
     bool profile_enabled;
+    bool use_stdin;     // Read AXL from stdin
+    bool use_stdout;    // Write output to stdout
+    bool collect_events; // Enable event collection
 } CliOptions;
 
 void print_usage(const char* program_name) {
@@ -32,11 +35,22 @@ CliOptions parse_cli_args(int argc, char** argv) {
     CliOptions options = {0};
     
     for (int i = 1; i < argc; i++) {
+
         if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--config") == 0) {
             if (i + 1 < argc) {
                 options.axml_path = argv[++i];
             }
-        } else if (strcmp(argv[i], "-i") == 0 || strcmp(argv[i], "--input") == 0) {
+        }
+else if (strcmp(argv[i], "--stdin") == 0) {
+    options.use_stdin = true;
+} 
+else if (strcmp(argv[i], "--stdout") == 0) {
+    options.use_stdout = true;
+}
+else if (strcmp(argv[i], "--collect-events") == 0) {
+    options.collect_events = true;
+}
+ else if (strcmp(argv[i], "-i") == 0 || strcmp(argv[i], "--input") == 0) {
             if (i + 1 < argc) {
                 options.axl_path = argv[++i];
             }
