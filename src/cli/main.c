@@ -1,39 +1,103 @@
-/**
- * AXL Compiler - Command Line Interface
- * Aegis Zero-Overhead Data Marshalling Implementation
- */
+// src/cli/main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <axl/core/integration/trie_dag.h>
 
-#include "axl/core/trie.h"
-#include "axl/core/dag.h"
-#include "axl/core/token.h"
-#include "axl/core/taxonomy.h"
+// Command-line options
+typedef struct {
+    const char* axml_path;
+    const char* axl_path;
+    bool preview_mode;
+    bool dry_run;
+    bool retain_memory;
+    bool trace_enabled;
+    bool profile_enabled;
+} CliOptions;
 
-int main(int argc, char *argv[]) {
+void print_usage(const char* program_name) {
+    printf("Usage: %s [options]\n", program_name);
+    printf("Options:\n");
+    printf("  -c, --config <path>    Path to AXML configuration file\n");
+    printf("  -i, --input <path>     Path to AXL input file\n");
+    printf("  --preview              Preview DAG before execution\n");
+    printf("  --dry-run              Simulate execution without state changes\n");
+    printf("  --retain               Override bust policy to retain memory\n");
+    printf("  --trace                Enable DAG traversal debug output\n");
+    printf("  --profile              Print memory and execution metrics\n");
+    printf("  -h, --help             Display this help message\n");
+}
+
+CliOptions parse_cli_args(int argc, char** argv) {
+    CliOptions options = {0};
+    
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-c") == 0 || strcmp(argv[i], "--config") == 0) {
+            if (i + 1 < argc) {
+                options.axml_path = argv[++i];
+            }
+        } else if (strcmp(argv[i], "-i") == 0 || strcmp(argv[i], "--input") == 0) {
+            if (i + 1 < argc) {
+                options.axl_path = argv[++i];
+            }
+        } else if (strcmp(argv[i], "--preview") == 0) {
+            options.preview_mode = true;
+        } else if (strcmp(argv[i], "--dry-run") == 0) {
+            options.dry_run = true;
+        } else if (strcmp(argv[i], "--retain") == 0) {
+            options.retain_memory = true;
+        } else if (strcmp(argv[i], "--trace") == 0) {
+            options.trace_enabled = true;
+        } else if (strcmp(argv[i], "--profile") == 0) {
+            options.profile_enabled = true;
+        } else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+            print_usage(argv[0]);
+            exit(0);
+        }
+    }
+    
+    return options;
+}
+
+int main(int argc, char** argv) {
+    // Parse command-line arguments
+    CliOptions options = parse_cli_args(argc, argv);
+    
+    // Validate required arguments
+    if (!options.axml_path || !options.axl_path) {
+        fprintf(stderr, "Error: Both AXML configuration and AXL input files are required\n");
+        print_usage(argv[0]);
+        return 1;
+    }
+    
+    // Print header
     printf("AXL Compiler v0.1.0 - OBINexus Aegis Project\n");
+    printf("Configuration: %s\n", options.axml_path);
+    printf("Input: %s\n", options.axl_path);
     
-    // Initialize core subsystems
-    if (trie_init() != 0) {
-        fprintf(stderr, "Failed to initialize trie subsystem\n");
-        return EXIT_FAILURE;
+    // Profile start time if enabled
+    clock_t start_time = 0;
+    if (options.profile_enabled) {
+        start_time = clock();
     }
     
-    if (dag_init() != 0) {
-        fprintf(stderr, "Failed to initialize DAG subsystem\n");
-        return EXIT_FAILURE;
+    // Execute with busting
+    bool result = execute_axl_with_busting(options.axl_path, options.axml_path);
+    
+    // Profile end time if enabled
+    if (options.profile_enabled) {
+        clock_t end_time = clock();
+        double execution_time = (double)(end_time - start_time) / CLOCKS_PER_SEC * 1000.0;
+        printf("Execution time: %.3f ms\n", execution_time);
     }
     
-    // Check for input file argument
-    if (argc < 2) {
-        printf("Usage: %s <input_file.axl>\n", argv[0]);
-        return EXIT_FAILURE;
+    // Print result
+    if (result) {
+        printf("Execution completed successfully\n");
+    } else {
+        fprintf(stderr, "Execution failed\n");
+        return 1;
     }
     
-    printf("Compiling: %s\n", argv[1]);
-    
-    // TODO: Implement compilation pipeline
-    
-    return EXIT_SUCCESS;
+    return 0;
 }
