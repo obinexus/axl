@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -g -shared -Wl,-soname,libaxl_core.so -o ../../lib/libaxl_core.so CMakeFiles/axl_core.dir/trie.c.o CMakeFiles/axl_core.dir/dag.c.o 

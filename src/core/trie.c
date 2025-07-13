@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Rest of implementation remains unchanged */
-
 /**
  * Initialize the trie subsystem
  * Returns 0 on success, non-zero on failure
@@ -54,7 +52,9 @@ bool trie_match_node(TrieNode *node, const char *text, size_t len) {
     int result = regexec(&node->pattern, text_copy, 1, &match, 0);
     
     // Check if we have a match at the start of the string that consumes the entire input
-    bool matches = (result == 0 && match.rm_so == 0 && match.rm_eo == len);
+    // Fix sign comparison with explicit cast
+    bool matches = (result == 0 && match.rm_so == 0 && 
+                   (size_t)match.rm_eo == len);
     
     free(text_copy);
     return matches;
